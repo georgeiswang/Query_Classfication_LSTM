@@ -1,0 +1,44 @@
+#Config for autoencoder
+
+#The unlabeled query log for training autoencoder
+query_log_file_path=/Users/yuwang/Documents/nlpdnn_tensorflow/text_logs.txt
+
+#The path where parameters of autoencoder is saved. It will be saved in .npz format
+#It is both the output of the autoencoder and the input to the dnn. 
+#If you don't train an autoencoder, this parameter file will be copied automatically (See run.sh)
+#If you do, it will be over-written.
+ae_param_file_path=/Users/yuwang/Documents/nlpdnn_tensorflow/ae_weights
+
+#Config for the dnn
+
+#The file that lists all the labels
+label_id_file_path=/Users/yuwang/Documents/nlpdnn_tensorflow/label_id.txt
+
+#The training data
+train_feature_file_path=/Users/yuwang/Documents/nlpdnn_tensorflow/train.all.input.txt
+#train_feature_file_path=/Users/yuwang/Documents/nlpdnn_tensorflow/train_feature.txt
+
+#The dev data
+dev_feature_file_path=/Users/yuwang/Documents/nlpdnn_tensorflow/dev.input.txt
+#dev_feature_file_path=/Users/yuwang/Documents/nlpdnn_tensorflow/dev_feature.txt
+
+#Word lookup table. You can train it using word2vec
+word_lookup_table_file_path=/Users/yuwang/Documents/nlpdnn_tensorflow/word_vectors_300.txt
+
+#The dir where parameters of dnn (and autoencoder) is saved
+dnn_output_dir=./dnn_output/
+
+###### Hyperparameters of autoencoder and dnn #####################################
+###### Be carefull! Normally, you don't need to change these parameters #############
+ae_hidden_layer_size=200
+sparsity_level=0.01
+sparse_reg=0.1
+ae_batch_size=20
+ae_learning_rate=0.2
+ae_n_epoches=5
+
+dnn_hidden_layer_size=200
+dnn_L2_reg=0.0001
+dnn_batch_size=10
+dnn_learning_rate=0.1
+dnn_n_epoches=10000
